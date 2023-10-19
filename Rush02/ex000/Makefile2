@@ -1,0 +1,34 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jutrujil <jutrujil@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2021/12/11 09:17:52 by sasalama          #+#    #+#              #
+#    Updated: 2021/12/12 16:09:21 by jutrujil         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+#Compile & options
+CC := gcc
+C_FLAGS = -Wall -Werror -Wextra
+
+#Files
+NAME := rush-02
+SRC := *.c
+SRCDIR = src/
+FILES = $(addprefix $(SRCDIR), $(SRC))
+
+all: $(NAME)
+
+$(NAME):
+		$(CC) $(C_FLAGS) $(FILES) -o $(NAME)
+
+clean:
+		rm -f $(SRC:.c=.o)
+
+fclean: clean
+		rm -f $(NAME)
+
+re: fclean all
